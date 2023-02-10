@@ -1,0 +1,9 @@
+#active svg {
+  fill: yellow !important;
+  transition-timing-function: ease-in-out;
+  transition-duration: 200ms;
+}
+#active {
+  border-left: 3px;
+  border-color: blue;
+}
