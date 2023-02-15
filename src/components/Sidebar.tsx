@@ -9,7 +9,7 @@ import "./styles.css";
 import menuIcon from "../../assets/menu.svg";
 
 function Sidebar() {
-  const [currentFood, setCurrentFood] = useState("");
+  const [currentFood, setCurrentFood] = useState("Hambúrgueres");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const foods = [
@@ -21,11 +21,13 @@ function Sidebar() {
 
   return (
     <aside
-      className={`bg-red-600 transition-all h-full  ${
+      id="sidebarTransition"
+      className={`bg-red-600  h-full  ${
         isSidebarOpen ? "w-72" : "w-32"
-      } py-8 px-0 overflow-hidden transition-all flex flex-col text-white items-start justify-center `}
+      } py-8 px-0 overflow-hidden  flex flex-col text-white items-start justify-center `}
     >
       <Button
+        id="menuButton"
         onClick={() => {
           setIsSidebarOpen(!isSidebarOpen);
           if (isSidebarOpen) {
@@ -36,8 +38,11 @@ function Sidebar() {
       >
         <img src={menuIcon} className="w-12" alt="menuIcon" />
       </Button>
-      <nav className="flex-1 w-full h-full">
-        <ul className="flex transition-all gap-3 mt-4 justify-center flex-col h-full">
+      <nav id="navItens" className=" w-full h-full">
+        <ul
+          id="navItens"
+          className="flex transition-all gap-3 mt-4 justify-center flex-col h-full"
+        >
           {foods.map((food) => (
             <li
               onClick={() => {
@@ -45,26 +50,28 @@ function Sidebar() {
               }}
               key={food.name}
             >
-              <div className="flex transition-all relative gap-3 mt-4 h-full">
+              <div className="flex transition-all  relative gap-3 mt-4 h-full">
                 <div
+                  id="foodName"
                   className={`w-[5px] h-full !transition-all absolute  bg-yellow-400 rounded-tr-lg rounded-br-lg ${
                     food.name == currentFood ? "" : "hidden"
                   }`}
                 ></div>
                 <a
                   href="#"
-                  id={food.name == currentFood ? "active" : ""}
+                  id={food.name == currentFood ? "active" : "item"}
                   className={`  px-8 transition-all flex items-center gap-8`}
                 >
                   <ReactSVG src={food.svg} className="w-16 " />
                   <span
+                    id="foodName"
                     className={`transition-all text-lg font-bold ${
                       food.name == currentFood
                         ? "text-yellow-400"
                         : "text-white"
                     }`}
                   >
-                    {food.name}
+                    <div>{food.name}</div>
                   </span>
                 </a>
               </div>
