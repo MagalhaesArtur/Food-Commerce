@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+  #foodListSec {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+#gridBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  gap: 1.75rem;
+}

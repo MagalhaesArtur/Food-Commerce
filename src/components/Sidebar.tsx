@@ -7,16 +7,17 @@ import SodaIcon from "../../assets/soda.svg";
 import IceCreamIcon from "../../assets/ice-cream.svg";
 import "./styles.css";
 import menuIcon from "../../assets/menu.svg";
+import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   const [currentFood, setCurrentFood] = useState("Hambúrgueres");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const foods = [
-    { name: "Hambúrgueres", svg: BurgerIcon },
-    { name: "Pizzas", svg: PizzaIcon },
-    { name: "Refrigerantes", svg: SodaIcon },
-    { name: "Sorvetes", svg: IceCreamIcon },
+    { name: "Hambúrgueres", svg: BurgerIcon, path: "/" },
+    { name: "Pizzas", svg: PizzaIcon, path: "pizzas" },
+    { name: "Refrigerantes", svg: SodaIcon, path: "drinks" },
+    { name: "Sorvetes", svg: IceCreamIcon, path: "ice-creams" },
   ];
 
   return (
@@ -30,9 +31,6 @@ function Sidebar() {
         id="menuButton"
         onClick={() => {
           setIsSidebarOpen(!isSidebarOpen);
-          if (isSidebarOpen) {
-            setCurrentFood("");
-          }
         }}
         className="hover:cursor-pointer !mx-auto  "
       >
@@ -57,8 +55,15 @@ function Sidebar() {
                     food.name == currentFood ? "" : "hidden"
                   }`}
                 ></div>
-                <a
-                  href="#"
+
+                <NavLink
+                  onClick={() => {
+                    document.title = ` Food Commerce  ${
+                      food.name != "Hambúrgueres" ? "| " + food.name : ""
+                    }
+                        `;
+                  }}
+                  to={food.path}
                   id={food.name == currentFood ? "active" : "item"}
                   className={`  px-8 transition-all flex items-center gap-8`}
                 >
@@ -73,7 +78,7 @@ function Sidebar() {
                   >
                     <div>{food.name}</div>
                   </span>
-                </a>
+                </NavLink>
               </div>
             </li>
           ))}
