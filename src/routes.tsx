@@ -28,6 +28,27 @@ function AppRoutes() {
       price: 23.5,
       image: "https://i.imgur.com/B4J04AJ.jpg",
     },
+    {
+      type: "drink",
+      name: "Coca-Cola 2L",
+      description: "A tradicional Coca-Cola que a família brasileira adora.",
+      price: 12,
+      image: "https://i.imgur.com/Lg3aKhf.jpg",
+    },
+    {
+      type: "drink",
+      name: "Guaraná Antarctica",
+      description: "O irresistível Guaraná Antarctica em sua versão latinha.",
+      price: 6.5,
+      image: "https://i.imgur.com/hOBrOIm.jpg",
+    },
+    {
+      type: "drink",
+      name: "Suco de Abacaxi",
+      description: "Suco natural de abacaxi com leve toque de menta.",
+      price: 8,
+      image: "https://i.imgur.com/VV9qTMh.jpg",
+    },
   ];
 
   return (

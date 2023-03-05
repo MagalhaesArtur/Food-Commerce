@@ -67,7 +67,7 @@ function Sidebar() {
                   id={food.name == currentFood ? "active" : "item"}
                   className={`  px-8 transition-all flex items-center gap-8`}
                 >
-                  <ReactSVG src={food.svg} className="w-16 " />
+                  <ReactSVG id="SVG" src={food.svg} className="w-16 " />
                   <span
                     id="foodName"
                     className={`transition-all text-lg font-bold ${
